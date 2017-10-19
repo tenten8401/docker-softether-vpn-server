@@ -4,7 +4,7 @@ LABEL maintainer="Isaac A. <isaac@isaacs.site>" \
       contributor="Antoine Mary <antoinee.mary@gmail.com>"
 
 ### SET ENVIRONNEMENT
-ENV LANG="en_US.UTF-8" \
+ENV LANG="en_US.UTF-8"
 
 ### SETUP
 COPY assets /assets
@@ -14,7 +14,7 @@ RUN set -ex ; \
     mv /assets/entrypoint.sh / ; chmod +x /entrypoint.sh ; \
 
     # Fetch sources
-    git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable
+    git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable ; \
     cd SoftEtherVPN_Stable ; \
     # Patching sources
     for file in /assets/patchs/*.sh; do /bin/sh "$file"; done ; \
