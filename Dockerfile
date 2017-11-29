@@ -38,5 +38,4 @@ EXPOSE 443/tcp 992/tcp 1194/udp 5555/tcp
 
 VOLUME ["/etc/vpnserver", "/var/log/vpnserver"]
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/vpnserver/vpnserver", "execsvc"]
+CMD ["/usr/vpnserver/vpnserver", "start"]
