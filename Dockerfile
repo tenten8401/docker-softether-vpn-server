@@ -9,7 +9,6 @@ ENV LANG="en_US.UTF-8"
 ### SETUP
 COPY entrypoint.sh /entrypoint.sh
 RUN set -ex ; \
-    addgroup -S softether ; adduser -D -H softether -g softether -G softether -s /sbin/nologin ; \
     apk add --no-cache --virtual .build-deps gcc make musl-dev ncurses-dev openssl-dev readline-dev wget git ; \
     chmod +x /entrypoint.sh
 
@@ -38,4 +37,5 @@ EXPOSE 443/tcp 992/tcp 1194/udp 5555/tcp
 
 VOLUME ["/etc/vpnserver", "/var/log/vpnserver"]
 
+ENTRYPOINT ["/bin/ash"]
 CMD ["/usr/vpnserver/vpnserver", "start"]
